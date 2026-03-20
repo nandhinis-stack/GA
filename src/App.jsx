@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -9,10 +9,14 @@ import ReactGA from "react-ga4";
 function App() {
   const [count, setCount] = useState(0)
 
-    useEffect(() => {
-    ReactGA.initialize("G-69S8XDZFR1"); 
-    ReactGA.send("pageview");
-  }, []);
+ useEffect(() => {
+  try {
+    ReactGA.initialize("G-69S8XDZFR1");
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  } catch (err) {
+    console.error("GA error:", err);
+  }
+}, []);
 
   return (
     <>
