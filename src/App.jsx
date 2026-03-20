@@ -7,8 +7,12 @@ import ReactGA from "react-ga4";
 
 
 function App() {
- // ReactGA.initialize("your GA measurement id");
   const [count, setCount] = useState(0)
+
+    useEffect(() => {
+    ReactGA.initialize("G-69S8XDZFR1"); 
+    ReactGA.send("pageview");
+  }, []);
 
   return (
     <>
