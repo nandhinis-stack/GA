@@ -9,13 +9,12 @@ import ReactGA from "react-ga4";
 function App() {
   const [count, setCount] = useState(0)
 
- useEffect(() => {
-  try {
-    ReactGA.initialize("G-69S8XDZFR1");
-    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
-  } catch (err) {
-    console.error("GA error:", err);
-  }
+useEffect(() => {
+  ReactGA.default.initialize("G-XXXXXXXXXX");
+  ReactGA.default.send({
+    hitType: "pageview",
+    page: window.location.pathname,
+  });
 }, []);
 
   return (
