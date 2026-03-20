@@ -6,12 +6,15 @@ import './App.css'
 import ReactGA from "react-ga4";
 
 
+
 function App() {
+  const ga = ReactGA.default || ReactGA;
+
   const [count, setCount] = useState(0)
 
 useEffect(() => {
-  ReactGA.default.initialize("G-XXXXXXXXXX");
-  ReactGA.default.send({
+  ga.initialize("G-XXXXXXXXXX");
+  ga.send({
     hitType: "pageview",
     page: window.location.pathname,
   });
